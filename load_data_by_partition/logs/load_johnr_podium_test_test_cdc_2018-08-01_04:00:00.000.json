@@ -1,0 +1,513 @@
+{
+  "id": 678,
+  "version": 0,
+  "lastUpdTs": 1537313121419,
+  "timeZoneOffset": -14400000,
+  "loadTime": 1533096000000,
+  "startTime": null,
+  "endTime": null,
+  "status": "INITIALIZED",
+  "orderSize": 0,
+  "recordCount": 0,
+  "deliveryId": "johnr_podium_test.test_cdc.20180801000000",
+  "infoMessage": null,
+  "sampleRecordCount": 0,
+  "loadTimeInMillis": 1533096000000,
+  "entityId": 3304,
+  "sourceName": "johnr_podium_test",
+  "sourceId": 449,
+  "entityName": "test_cdc",
+  "sourceType": "JDBC_SOURCE",
+  "goodRecordCount": 0,
+  "badRecordCount": 0,
+  "uglyRecordCount": 0,
+  "chaffRecordCount": 0,
+  "expectedRecordCount": 0,
+  "loadType": "DATA",
+  "workorderProp": [
+    {
+      "id": 15913,
+      "version": 0,
+      "createdTs": 1537313121423,
+      "createdBy": "podium",
+      "lastUpdTs": 1537313121423,
+      "modifiedBy": "podium",
+      "timeZoneOffset": -14400000,
+      "name": "enable.profiling",
+      "value": "true"
+    },
+    {
+      "id": 15912,
+      "version": 0,
+      "createdTs": 1537313121422,
+      "createdBy": "podium",
+      "lastUpdTs": 1537313121422,
+      "modifiedBy": "podium",
+      "timeZoneOffset": -14400000,
+      "name": "enable.validation",
+      "value": "true"
+    },
+    {
+      "id": 622063,
+      "version": null,
+      "timeZoneOffset": -14400000,
+      "name": "entityProp.dataset.date.time.extraction.argument",
+      "value": null
+    },
+    {
+      "id": 622052,
+      "version": null,
+      "timeZoneOffset": -14400000,
+      "name": "entityProp.dataset.date.time.extraction.method",
+      "value": null
+    },
+    {
+      "id": 622055,
+      "version": null,
+      "timeZoneOffset": -14400000,
+      "name": "entityProp.dataset.date.time.pattern",
+      "value": null
+    },
+    {
+      "id": 622040,
+      "version": null,
+      "timeZoneOffset": -14400000,
+      "name": "entityProp.dataset.expected.record.count.adjustment",
+      "value": "0"
+    },
+    {
+      "id": 622086,
+      "version": null,
+      "timeZoneOffset": -14400000,
+      "name": "entityProp.dataset.expected.record.count.excludes.chaff",
+      "value": null
+    },
+    {
+      "id": 622041,
+      "version": null,
+      "timeZoneOffset": -14400000,
+      "name": "entityProp.dataset.expected.record.count.extraction.argument",
+      "value": null
+    },
+    {
+      "id": 622083,
+      "version": null,
+      "timeZoneOffset": -14400000,
+      "name": "entityProp.dataset.expected.record.count.extraction.method",
+      "value": null
+    },
+    {
+      "id": 622042,
+      "version": null,
+      "timeZoneOffset": -14400000,
+      "name": "entityProp.dataset.manifest.file.glob",
+      "value": null
+    },
+    {
+      "id": 622051,
+      "version": null,
+      "timeZoneOffset": -14400000,
+      "name": "entityProp.default.field.allow.control.chars",
+      "value": null
+    },
+    {
+      "id": 622066,
+      "version": null,
+      "timeZoneOffset": -14400000,
+      "name": "entityProp.default.field.allow.non.ascii.chars",
+      "value": null
+    },
+    {
+      "id": 622053,
+      "version": null,
+      "timeZoneOffset": -14400000,
+      "name": "entityProp.default.field.allow.whitespace",
+      "value": null
+    },
+    {
+      "id": 622074,
+      "version": null,
+      "timeZoneOffset": -14400000,
+      "name": "entityProp.default.field.do.not.escape.harmless.control.chars",
+      "value": null
+    },
+    {
+      "id": 622036,
+      "version": null,
+      "timeZoneOffset": -14400000,
+      "name": "entityProp.default.field.embedded.enclosure.scheme",
+      "value": "DOUBLE_EMBEDDED_ENCLOSURE"
+    },
+    {
+      "id": 622087,
+      "version": null,
+      "timeZoneOffset": -14400000,
+      "name": "entityProp.default.field.enclosure.incidence",
+      "value": null
+    },
+    {
+      "id": 622091,
+      "version": null,
+      "timeZoneOffset": -14400000,
+      "name": "entityProp.default.field.max.legal.char.length",
+      "value": "0"
+    },
+    {
+      "id": 622093,
+      "version": null,
+      "timeZoneOffset": -14400000,
+      "name": "entityProp.default.field.min.legal.char.length",
+      "value": "0"
+    },
+    {
+      "id": 622062,
+      "version": null,
+      "timeZoneOffset": -14400000,
+      "name": "entityProp.default.field.nullif.pattern",
+      "value": null
+    },
+    {
+      "id": 622064,
+      "version": null,
+      "timeZoneOffset": -14400000,
+      "name": "entityProp.default.field.nullif.pattern.is.regex",
+      "value": "false"
+    },
+    {
+      "id": 622077,
+      "version": null,
+      "timeZoneOffset": -14400000,
+      "name": "entityProp.default.field.trim.left",
+      "value": "true"
+    },
+    {
+      "id": 622044,
+      "version": null,
+      "timeZoneOffset": -14400000,
+      "name": "entityProp.default.field.trim.right",
+      "value": "true"
+    },
+    {
+      "id": 622043,
+      "version": null,
+      "timeZoneOffset": -14400000,
+      "name": "entityProp.enable.archiving",
+      "value": "true"
+    },
+    {
+      "id": 622049,
+      "version": null,
+      "timeZoneOffset": -14400000,
+      "name": "entityProp.enable.distribution",
+      "value": "true"
+    },
+    {
+      "id": 622068,
+      "version": null,
+      "timeZoneOffset": -14400000,
+      "name": "entityProp.enable.profiling",
+      "value": "true"
+    },
+    {
+      "id": 622070,
+      "version": null,
+      "timeZoneOffset": -14400000,
+      "name": "entityProp.enable.validation",
+      "value": "true"
+    },
+    {
+      "id": 622061,
+      "version": null,
+      "timeZoneOffset": -14400000,
+      "name": "entityProp.entity.base.type",
+      "value": "Snapshot"
+    },
+    {
+      "id": 622037,
+      "version": null,
+      "timeZoneOffset": -14400000,
+      "name": "entityProp.entity.curr-ingest-end-timestamp",
+      "value": "1900-01-01 00:00:00 000000"
+    },
+    {
+      "id": 622050,
+      "version": null,
+      "timeZoneOffset": -14400000,
+      "name": "entityProp.entity.level",
+      "value": "MANAGED"
+    },
+    {
+      "id": 622046,
+      "version": null,
+      "timeZoneOffset": -14400000,
+      "name": "entityProp.entity.prev-ingest-end-timestamp",
+      "value": "1900-01-01 00:00:00 000000"
+    },
+    {
+      "id": 622080,
+      "version": null,
+      "timeZoneOffset": -14400000,
+      "name": "entityProp.header.byte.count",
+      "value": "0"
+    },
+    {
+      "id": 622060,
+      "version": null,
+      "timeZoneOffset": -14400000,
+      "name": "entityProp.header.defines.field.names",
+      "value": "false"
+    },
+    {
+      "id": 622058,
+      "version": null,
+      "timeZoneOffset": -14400000,
+      "name": "entityProp.header.line.count",
+      "value": "1"
+    },
+    {
+      "id": 622045,
+      "version": null,
+      "timeZoneOffset": -14400000,
+      "name": "entityProp.header.record.count",
+      "value": "0"
+    },
+    {
+      "id": 622038,
+      "version": null,
+      "timeZoneOffset": -14400000,
+      "name": "entityProp.header.validation.pattern",
+      "value": "\"cust_id\",\"last_update_ts\"\\r\\n"
+    },
+    {
+      "id": 622065,
+      "version": null,
+      "timeZoneOffset": -14400000,
+      "name": "entityProp.header.validation.pattern.is.regex",
+      "value": "false"
+    },
+    {
+      "id": 622071,
+      "version": null,
+      "timeZoneOffset": -14400000,
+      "name": "entityProp.mapred.job.arguments",
+      "value": null
+    },
+    {
+      "id": 622067,
+      "version": null,
+      "timeZoneOffset": -14400000,
+      "name": "entityProp.original.name",
+      "value": "test_cdc"
+    },
+    {
+      "id": 622075,
+      "version": null,
+      "timeZoneOffset": -14400000,
+      "name": "entityProp.record.characterset",
+      "value": "UTF_8"
+    },
+    {
+      "id": 622073,
+      "version": null,
+      "timeZoneOffset": -14400000,
+      "name": "entityProp.record.charencoding.confidence",
+      "value": "0.00"
+    },
+    {
+      "id": 622056,
+      "version": null,
+      "timeZoneOffset": -14400000,
+      "name": "entityProp.record.close.quote",
+      "value": "\""
+    },
+    {
+      "id": 622054,
+      "version": null,
+      "timeZoneOffset": -14400000,
+      "name": "entityProp.record.field.delimiter",
+      "value": ","
+    },
+    {
+      "id": 622039,
+      "version": null,
+      "timeZoneOffset": -14400000,
+      "name": "entityProp.record.fixed.byte.count",
+      "value": "0"
+    },
+    {
+      "id": 622085,
+      "version": null,
+      "timeZoneOffset": -14400000,
+      "name": "entityProp.record.last.field.has.delimiter",
+      "value": "false"
+    },
+    {
+      "id": 622059,
+      "version": null,
+      "timeZoneOffset": -14400000,
+      "name": "entityProp.record.layout",
+      "value": "VARIABLE_CHAR_LENGTH_TERMINATED"
+    },
+    {
+      "id": 622089,
+      "version": null,
+      "timeZoneOffset": -14400000,
+      "name": "entityProp.record.max.byte.count",
+      "value": "262144"
+    },
+    {
+      "id": 622057,
+      "version": null,
+      "timeZoneOffset": -14400000,
+      "name": "entityProp.record.min.byte.count",
+      "value": "1"
+    },
+    {
+      "id": 622084,
+      "version": null,
+      "timeZoneOffset": -14400000,
+      "name": "entityProp.record.open.quote",
+      "value": "\""
+    },
+    {
+      "id": 622069,
+      "version": null,
+      "timeZoneOffset": -14400000,
+      "name": "entityProp.record.record.terminator",
+      "value": "\\r\\n"
+    },
+    {
+      "id": 622092,
+      "version": null,
+      "timeZoneOffset": -14400000,
+      "name": "entityProp.record.validation.regex",
+      "value": null
+    },
+    {
+      "id": 622081,
+      "version": null,
+      "timeZoneOffset": -14400000,
+      "name": "entityProp.src.file.glob",
+      "value": "SELECT \"cust_id\",\"last_update_ts\" FROM podium_test.\"test_cdc\""
+    },
+    {
+      "id": 622079,
+      "version": null,
+      "timeZoneOffset": -14400000,
+      "name": "entityProp.trailer.byte.count",
+      "value": "0"
+    },
+    {
+      "id": 622047,
+      "version": null,
+      "timeZoneOffset": -14400000,
+      "name": "entityProp.trailer.control.z.at.eof.incidence",
+      "value": null
+    },
+    {
+      "id": 622090,
+      "version": null,
+      "timeZoneOffset": -14400000,
+      "name": "entityProp.trailer.line.count",
+      "value": "0"
+    },
+    {
+      "id": 622082,
+      "version": null,
+      "timeZoneOffset": -14400000,
+      "name": "entityProp.trailer.record.count",
+      "value": "0"
+    },
+    {
+      "id": 622048,
+      "version": null,
+      "timeZoneOffset": -14400000,
+      "name": "entityProp.trailer.validation.pattern",
+      "value": null
+    },
+    {
+      "id": 622076,
+      "version": null,
+      "timeZoneOffset": -14400000,
+      "name": "entityProp.trailer.validation.pattern.is.regex",
+      "value": "false"
+    },
+    {
+      "id": 622088,
+      "version": null,
+      "timeZoneOffset": -14400000,
+      "name": "entityProp.unicode.byte.order.mark",
+      "value": null
+    },
+    {
+      "id": 622078,
+      "version": null,
+      "timeZoneOffset": -14400000,
+      "name": "entityProp.unicode.byte.order.mark.incidence",
+      "value": null
+    },
+    {
+      "id": 622072,
+      "version": null,
+      "timeZoneOffset": -14400000,
+      "name": "entityProp.use.single.receiving.mapper",
+      "value": "false"
+    },
+    {
+      "id": 622032,
+      "version": null,
+      "timeZoneOffset": -14400000,
+      "name": "sourceProp.default.entity.level",
+      "value": "MANAGED"
+    },
+    {
+      "id": 622030,
+      "version": null,
+      "timeZoneOffset": -14400000,
+      "name": "sourceProp.enable.archiving",
+      "value": "true"
+    },
+    {
+      "id": 622029,
+      "version": null,
+      "timeZoneOffset": -14400000,
+      "name": "sourceProp.enable.distribution",
+      "value": "true"
+    },
+    {
+      "id": 622034,
+      "version": null,
+      "timeZoneOffset": -14400000,
+      "name": "sourceProp.enable.profiling",
+      "value": "true"
+    },
+    {
+      "id": 622033,
+      "version": null,
+      "timeZoneOffset": -14400000,
+      "name": "sourceProp.enable.validation",
+      "value": "true"
+    },
+    {
+      "id": 622035,
+      "version": null,
+      "timeZoneOffset": -14400000,
+      "name": "sourceProp.mapred.job.arguments",
+      "value": null
+    },
+    {
+      "id": 622031,
+      "version": null,
+      "timeZoneOffset": -14400000,
+      "name": "sourceProp.originalSourceName",
+      "value": "podium_test"
+    },
+    {
+      "id": 622028,
+      "version": null,
+      "timeZoneOffset": -14400000,
+      "name": "sourceProp.use.single.receiving.mapper",
+      "value": "false"
+    }
+  ]
+}

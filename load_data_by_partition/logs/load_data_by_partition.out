@@ -1,0 +1,25 @@
+
+
+load_data_by_partition.sh is being executed with the following parameters:
+    hostname      = http://ludwig.podiumdata.com:8180/podium
+    sourcename    = johnr_podium_test
+    entityname    = test_cdc
+    curr_ts       = 20180918190704
+    partfieldname = last_update_ts
+    Data will be loaded by partition on last_update_ts
+
+
+
+=================================================================================
+Found partition values: Number 1: null                                                   null
+=================================================================================
+    === get entityID by searching Source & Entity name ==========================
+    curl -s -X GET --header 'Accept: application/json' 'http://ludwig.podiumdata.com:8180/podium/entity/v1/getEntitiesByCrit?entityName=test_cdc&srcName=johnr_podium_test&objType=EXTERNAL' -b ./logs/podium_cookie_20180918190704.txt | jq .[].id
+    3304
+    === get src.file.glob =======================================================
+    curl -s -X GET --header 'Accept: application/json' 'http://ludwig.podiumdata.com:8180/podium/entity/v1/getProperty/3304/src.file.glob' -b ./logs/podium_cookie_20180918190704.txt
+    SELECT cust_id,last_update_ts FROM podium_test.test_cdc  WHERE last_update_ts = "null                                                   null"
+    === data load request payload ===============================================
+    null --> {loadTime:nullTnullZ,entityId:3304}
+    === here we send in the API request to load =================================
+    curl -s -X PUT --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{"loadTime":"nullTnullZ", "entityId":3304}' 'http://ludwig.podiumdata.com:8180/podium/entity/v1/loadDataForEntity/true' -b ./logs/podium_cookie_20180918190704.txt | jq . > ./logs/load_johnr_podium_test_test_cdc_null_null.json

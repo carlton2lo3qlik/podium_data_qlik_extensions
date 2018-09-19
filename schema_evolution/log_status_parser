@@ -1,0 +1,58 @@
+# perl
+# Input file is the captured output as a result of the following API call:
+# ## Capture Log Data after completion
+#   curl -H GET ''"${hostname}"'/entity/v1/loadLogs/'"${entity_id}"'/?count=1' -w "%{http_code}"  -b ${cookiefile} > ${out_filename}
+
+# invoke by executing: perl -n log_status_parser <input_file_name>
+
+$str_1=$_; 
+
+$str_1 =~ /(^\{[^\{]*)?\[(.*)/g;
+
+$str_2 = $2;
+
+
+while ( $str_2 =~ /\{([^}]+(\{\})?[^}]+)\}/g ){
+	$list = $1;
+
+ 	$list =~ s/[{}"]*//g;
+ 	$list =~ s/\\n/ /g;
+
+	if ($list !~ /status/) {
+		last;
+	}
+
+ 	@list_arr = split(',', $list);
+# 	
+	$count = $schema_changed_flag = $schema_changed_flag = 0;
+	@messages = qw( 7 11 );
+
+ 	foreach my $i (@list_arr) {
+
+ 		if ( grep (/^$count$/,@messages) ) {
+	 		
+	 		if ($i =~ /FINISHED/) {
+	 			break;
+	 		}
+			
+	 		if ($i =~ /FAILED/) {
+	 			$failed_flag = 1;
+	 		}
+	 		
+	 		
+	 		if ($i =~ /expected header patternString/) {
+				$schema_changed_flag = 1;
+			}
+
+		}
+		$count++;
+ 	}
+}
+
+if ($schema_changed_flag) {
+	print "FAILED_SCHEMA_CHANGE";
+} elsif  ($failed_flag) {
+	print "FAILED";
+} else {
+	print "FINISHED";
+}

@@ -1,0 +1,27 @@
+* About to connect() to ludwig.podiumdata.com port 8180 (#0)
+*   Trying 192.168.126.170... connected
+* Connected to ludwig.podiumdata.com (192.168.126.170) port 8180 (#0)
+> POST /podium/j_spring_security_check?j_username=podium&j_password=nvs2014! HTTP/1.1
+> User-Agent: curl/7.19.7 (x86_64-redhat-linux-gnu) libcurl/7.19.7 NSS/3.21 Basic ECC zlib/1.2.3 libidn/1.18 libssh2/1.4.2
+> Host: ludwig.podiumdata.com:8180
+> Accept: */*
+> 
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0< HTTP/1.1 302 Found
+< Server: Apache-Coyote/1.1
+< X-Content-Type-Options: nosniff
+< X-XSS-Protection: 1; mode=block
+< Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+< Pragma: no-cache
+< Expires: 0
+* Added cookie JSESSIONID="90A7D3991FD19963DE676F1131F61EF0" for domain ludwig.podiumdata.com, path /podium, expire 0
+< Set-Cookie: JSESSIONID=90A7D3991FD19963DE676F1131F61EF0; Path=/podium; HttpOnly
+< Location: /podium/
+< Content-Length: 0
+< Date: Tue, 18 Sep 2018 23:24:54 GMT
+< 
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0* Connection #0 to host ludwig.podiumdata.com left intact
+
+* Closing connection #0
+000

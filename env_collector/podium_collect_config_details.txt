@@ -1,0 +1,111 @@
+1 -- create a directory to capture current configuration
+export currts=`date '+%Y%m%d%H%M%S'`;
+
+mkdir /tmp/pd_config_${currts};
+
+export cfg_dir=/tmp/pd_config_${currts};
+
+export cfg_tar=pd_config_${currts}.gz;
+
+
+2 -- capture the Podium exec and settings
+ps -ef | grep Boot > ${cfg_dir}/podium_ps_ef_output_${currts}.txt
+
+3 -- Identify the Podium directory
+*** If there is more than one instance of Podium running this command will yield as many rows as instances
+*** Select the appropriate directory for use in the next step
+ps -ef | grep Boot | cut -d'=' -f2 | sed 's/conf.*$//g' | grep -v Boot
+
+4 -- 
+cd to dir from step 2
+
+5 -- copy config files to temp_dir
+
+find . -name '*.xml' -print | xargs -I % cp --preserve=mode,timestamps % ${cfg_dir}
+
+find . -name core_env.properties | xargs -I % cp --preserve=mode,timestamps % ${cfg_dir}
+
+find . -name setenv.sh | xargs -I % cp --preserve=mode,timestamps % ${cfg_dir}
+
+find . -name startup.sh | xargs -I % cp --preserve=mode,timestamps % ${cfg_dir}
+
+find . -name catalina.properties | xargs -I % cp --preserve=mode,timestamps % ${cfg_dir}
+
+find . -name build_number.txt | xargs -I % cp --preserve=mode,timestamps % ${cfg_dir}
+
+6 -- collect access and garbage collection logs
+
+## these commands collect the most recent logs
+## please capture the appropriate logs for the appropriate date
+
+ls -ltr logs/localhost* | awk '{print $NF}' | tail -1 | xargs -I % cp % $cfg_dir
+
+ls -ltr logs/gc.* | awk '{print $NF}' | tail -1 | xargs -I % cp % $cfg_dir
+
+7 --
+## Execute the following to collect an extract from catalina.out
+
+# assign error time up to the minute -- example
+error_time="Jan 31, 2018 9:47"
+
+#converts error time to a label for the catalina extract
+catalina_label=`echo $error_time | sed 's/[ ,:]\+/_/g'`
+
+echo $catalina_label
+
+# captures 1000 lines on either side of all occurrences of the error time in the catalina.out file
+grep -C1000 "${error_time}" logs/catalina.out > ${cfg_dir}/catalina_${catalina_label}.out
+
+
+## If a postgres error is being investigated execute the following on the server where Postgres is running
+## Note cfg_dir may need to be redefined if postgres is running on a separate machine 
+## unless the directory is a shared
+
+8 -- list postgres processes
+
+ps -ef | grep "postgres " > ${cfg_dir}/pg_processes_${currts}.txt
+
+9 -- capture max_conn from postgres configuration
+
+pg_data_dir=`grep postmaster ${cfg_dir}/pg_processes_${currts}.txt | grep 9.6 | awk '{print $NF}'`
+
+grep max_conn $pg_data_dir/postgresql.conf > ${cfg_dir}/pg_max_conn_${currts}.txt
+
+10 -- capture java thread dump
+
+podium_pid=`ps -ef | grep Boot | grep -v grep | awk '{print $2}'`
+
+# The following command should have one number only
+# If it has more than one, inspect the output of: 
+#  ps -ef | grep Boot | grep -v grep 
+# and ensure that it is returning the relevant Podium instance 
+
+echo $podium_pid
+
+# kill -QUIT causes java to output a thread dump to catalina.out
+
+kill -QUIT $podium_pid
+
+# capture last 2mB of catalina.out
+
+tail -c 2m logs/catalina.out > ${cfg_dir}/catalina_tail_${currts}.out
+
+11 -- capture top output
+
+for i in `seq 1 5`;
+do
+	date >> ${cfg_dir}/top_output_${currts}.txt;
+	top -n1 >> ${cfg_dir}/top_output_${currts}.txt;
+	echo "sleeping 5..." >> ${cfg_dir}/top_output_${currts}.txt;
+	sleep 5;
+done    
+
+11 -- 
+## tar the entire directory and attach it to your ticket in Freshdesk
+tar -czvf ${cfg_tar} ${cfg_dir}
+
+12 -- capture Podium restarts
+grep -C50 "PODIUM Schema upgrade" catalina.out | grep INFO > ${cfg_dir}/podium_restarts_${currts}.txt
+
+
+

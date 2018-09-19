@@ -1,0 +1,527 @@
+{
+  "cause": null,
+  "stackTrace": [
+    {
+      "methodName": "handleException",
+      "fileName": "RestExceptionHandler.java",
+      "lineNumber": 91,
+      "className": "com.nvs.core.error.RestExceptionHandler",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "handleHttpMessageNotReadable",
+      "fileName": "RestExceptionHandler.java",
+      "lineNumber": 61,
+      "className": "com.nvs.core.error.RestExceptionHandler",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "handleException",
+      "fileName": "ResponseEntityExceptionHandler.java",
+      "lineNumber": 161,
+      "className": "org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "invoke",
+      "fileName": null,
+      "lineNumber": -1,
+      "className": "sun.reflect.GeneratedMethodAccessor1326",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "invoke",
+      "fileName": "DelegatingMethodAccessorImpl.java",
+      "lineNumber": 43,
+      "className": "sun.reflect.DelegatingMethodAccessorImpl",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "invoke",
+      "fileName": "Method.java",
+      "lineNumber": 498,
+      "className": "java.lang.reflect.Method",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "doInvoke",
+      "fileName": "InvocableHandlerMethod.java",
+      "lineNumber": 221,
+      "className": "org.springframework.web.method.support.InvocableHandlerMethod",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "invokeForRequest",
+      "fileName": "InvocableHandlerMethod.java",
+      "lineNumber": 136,
+      "className": "org.springframework.web.method.support.InvocableHandlerMethod",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "invokeAndHandle",
+      "fileName": "ServletInvocableHandlerMethod.java",
+      "lineNumber": 114,
+      "className": "org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "doResolveHandlerMethodException",
+      "fileName": "ExceptionHandlerExceptionResolver.java",
+      "lineNumber": 375,
+      "className": "org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "doResolveException",
+      "fileName": "AbstractHandlerMethodExceptionResolver.java",
+      "lineNumber": 59,
+      "className": "org.springframework.web.servlet.handler.AbstractHandlerMethodExceptionResolver",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "resolveException",
+      "fileName": "AbstractHandlerExceptionResolver.java",
+      "lineNumber": 136,
+      "className": "org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "resolveException",
+      "fileName": "HandlerExceptionResolverComposite.java",
+      "lineNumber": 74,
+      "className": "org.springframework.web.servlet.handler.HandlerExceptionResolverComposite",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "processHandlerException",
+      "fileName": "DispatcherServlet.java",
+      "lineNumber": 1193,
+      "className": "org.springframework.web.servlet.DispatcherServlet",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "processDispatchResult",
+      "fileName": "DispatcherServlet.java",
+      "lineNumber": 1030,
+      "className": "org.springframework.web.servlet.DispatcherServlet",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "doDispatch",
+      "fileName": "DispatcherServlet.java",
+      "lineNumber": 980,
+      "className": "org.springframework.web.servlet.DispatcherServlet",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "doService",
+      "fileName": "DispatcherServlet.java",
+      "lineNumber": 897,
+      "className": "org.springframework.web.servlet.DispatcherServlet",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "processRequest",
+      "fileName": "FrameworkServlet.java",
+      "lineNumber": 970,
+      "className": "org.springframework.web.servlet.FrameworkServlet",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "doPut",
+      "fileName": "FrameworkServlet.java",
+      "lineNumber": 883,
+      "className": "org.springframework.web.servlet.FrameworkServlet",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "service",
+      "fileName": "HttpServlet.java",
+      "lineNumber": 653,
+      "className": "javax.servlet.http.HttpServlet",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "service",
+      "fileName": "FrameworkServlet.java",
+      "lineNumber": 846,
+      "className": "org.springframework.web.servlet.FrameworkServlet",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "service",
+      "fileName": "HttpServlet.java",
+      "lineNumber": 731,
+      "className": "javax.servlet.http.HttpServlet",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "internalDoFilter",
+      "fileName": "ApplicationFilterChain.java",
+      "lineNumber": 303,
+      "className": "org.apache.catalina.core.ApplicationFilterChain",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "doFilter",
+      "fileName": "ApplicationFilterChain.java",
+      "lineNumber": 208,
+      "className": "org.apache.catalina.core.ApplicationFilterChain",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "doFilter",
+      "fileName": "WsFilter.java",
+      "lineNumber": 52,
+      "className": "org.apache.tomcat.websocket.server.WsFilter",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "internalDoFilter",
+      "fileName": "ApplicationFilterChain.java",
+      "lineNumber": 241,
+      "className": "org.apache.catalina.core.ApplicationFilterChain",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "doFilter",
+      "fileName": "ApplicationFilterChain.java",
+      "lineNumber": 208,
+      "className": "org.apache.catalina.core.ApplicationFilterChain",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "doFilter",
+      "fileName": "FilterChainProxy.java",
+      "lineNumber": 317,
+      "className": "org.springframework.security.web.FilterChainProxy$VirtualFilterChain",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "invoke",
+      "fileName": "FilterSecurityInterceptor.java",
+      "lineNumber": 127,
+      "className": "org.springframework.security.web.access.intercept.FilterSecurityInterceptor",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "doFilter",
+      "fileName": "FilterSecurityInterceptor.java",
+      "lineNumber": 91,
+      "className": "org.springframework.security.web.access.intercept.FilterSecurityInterceptor",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "doFilter",
+      "fileName": "FilterChainProxy.java",
+      "lineNumber": 331,
+      "className": "org.springframework.security.web.FilterChainProxy$VirtualFilterChain",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "doFilter",
+      "fileName": "ExceptionTranslationFilter.java",
+      "lineNumber": 115,
+      "className": "org.springframework.security.web.access.ExceptionTranslationFilter",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "doFilter",
+      "fileName": "FilterChainProxy.java",
+      "lineNumber": 331,
+      "className": "org.springframework.security.web.FilterChainProxy$VirtualFilterChain",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "doFilter",
+      "fileName": "SessionManagementFilter.java",
+      "lineNumber": 137,
+      "className": "org.springframework.security.web.session.SessionManagementFilter",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "doFilter",
+      "fileName": "FilterChainProxy.java",
+      "lineNumber": 331,
+      "className": "org.springframework.security.web.FilterChainProxy$VirtualFilterChain",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "doFilter",
+      "fileName": "AnonymousAuthenticationFilter.java",
+      "lineNumber": 111,
+      "className": "org.springframework.security.web.authentication.AnonymousAuthenticationFilter",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "doFilter",
+      "fileName": "FilterChainProxy.java",
+      "lineNumber": 331,
+      "className": "org.springframework.security.web.FilterChainProxy$VirtualFilterChain",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "doFilter",
+      "fileName": "SecurityContextHolderAwareRequestFilter.java",
+      "lineNumber": 169,
+      "className": "org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "doFilter",
+      "fileName": "FilterChainProxy.java",
+      "lineNumber": 331,
+      "className": "org.springframework.security.web.FilterChainProxy$VirtualFilterChain",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "doFilter",
+      "fileName": "RequestCacheAwareFilter.java",
+      "lineNumber": 63,
+      "className": "org.springframework.security.web.savedrequest.RequestCacheAwareFilter",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "doFilter",
+      "fileName": "FilterChainProxy.java",
+      "lineNumber": 331,
+      "className": "org.springframework.security.web.FilterChainProxy$VirtualFilterChain",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "doFilter",
+      "fileName": "AbstractAuthenticationProcessingFilter.java",
+      "lineNumber": 200,
+      "className": "org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "doFilter",
+      "fileName": "FilterChainProxy.java",
+      "lineNumber": 331,
+      "className": "org.springframework.security.web.FilterChainProxy$VirtualFilterChain",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "doFilter",
+      "fileName": "LogoutFilter.java",
+      "lineNumber": 121,
+      "className": "org.springframework.security.web.authentication.logout.LogoutFilter",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "doFilter",
+      "fileName": "FilterChainProxy.java",
+      "lineNumber": 331,
+      "className": "org.springframework.security.web.FilterChainProxy$VirtualFilterChain",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "doFilterInternal",
+      "fileName": "HeaderWriterFilter.java",
+      "lineNumber": 66,
+      "className": "org.springframework.security.web.header.HeaderWriterFilter",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "doFilter",
+      "fileName": "OncePerRequestFilter.java",
+      "lineNumber": 107,
+      "className": "org.springframework.web.filter.OncePerRequestFilter",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "doFilter",
+      "fileName": "FilterChainProxy.java",
+      "lineNumber": 331,
+      "className": "org.springframework.security.web.FilterChainProxy$VirtualFilterChain",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "doFilter",
+      "fileName": "SecurityContextPersistenceFilter.java",
+      "lineNumber": 105,
+      "className": "org.springframework.security.web.context.SecurityContextPersistenceFilter",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "doFilter",
+      "fileName": "FilterChainProxy.java",
+      "lineNumber": 331,
+      "className": "org.springframework.security.web.FilterChainProxy$VirtualFilterChain",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "doFilterInternal",
+      "fileName": "WebAsyncManagerIntegrationFilter.java",
+      "lineNumber": 56,
+      "className": "org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "doFilter",
+      "fileName": "OncePerRequestFilter.java",
+      "lineNumber": 107,
+      "className": "org.springframework.web.filter.OncePerRequestFilter",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "doFilter",
+      "fileName": "FilterChainProxy.java",
+      "lineNumber": 331,
+      "className": "org.springframework.security.web.FilterChainProxy$VirtualFilterChain",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "doFilterInternal",
+      "fileName": "FilterChainProxy.java",
+      "lineNumber": 214,
+      "className": "org.springframework.security.web.FilterChainProxy",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "doFilter",
+      "fileName": "FilterChainProxy.java",
+      "lineNumber": 177,
+      "className": "org.springframework.security.web.FilterChainProxy",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "invokeDelegate",
+      "fileName": "DelegatingFilterProxy.java",
+      "lineNumber": 346,
+      "className": "org.springframework.web.filter.DelegatingFilterProxy",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "doFilter",
+      "fileName": "DelegatingFilterProxy.java",
+      "lineNumber": 262,
+      "className": "org.springframework.web.filter.DelegatingFilterProxy",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "internalDoFilter",
+      "fileName": "ApplicationFilterChain.java",
+      "lineNumber": 241,
+      "className": "org.apache.catalina.core.ApplicationFilterChain",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "doFilter",
+      "fileName": "ApplicationFilterChain.java",
+      "lineNumber": 208,
+      "className": "org.apache.catalina.core.ApplicationFilterChain",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "invoke",
+      "fileName": "StandardWrapperValve.java",
+      "lineNumber": 218,
+      "className": "org.apache.catalina.core.StandardWrapperValve",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "invoke",
+      "fileName": "StandardContextValve.java",
+      "lineNumber": 122,
+      "className": "org.apache.catalina.core.StandardContextValve",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "invoke",
+      "fileName": "AuthenticatorBase.java",
+      "lineNumber": 505,
+      "className": "org.apache.catalina.authenticator.AuthenticatorBase",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "invoke",
+      "fileName": "StandardHostValve.java",
+      "lineNumber": 169,
+      "className": "org.apache.catalina.core.StandardHostValve",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "invoke",
+      "fileName": "ErrorReportValve.java",
+      "lineNumber": 103,
+      "className": "org.apache.catalina.valves.ErrorReportValve",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "invoke",
+      "fileName": "AccessLogValve.java",
+      "lineNumber": 956,
+      "className": "org.apache.catalina.valves.AccessLogValve",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "invoke",
+      "fileName": "StandardEngineValve.java",
+      "lineNumber": 116,
+      "className": "org.apache.catalina.core.StandardEngineValve",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "service",
+      "fileName": "CoyoteAdapter.java",
+      "lineNumber": 442,
+      "className": "org.apache.catalina.connector.CoyoteAdapter",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "process",
+      "fileName": "AbstractHttp11Processor.java",
+      "lineNumber": 1083,
+      "className": "org.apache.coyote.http11.AbstractHttp11Processor",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "process",
+      "fileName": "AbstractProtocol.java",
+      "lineNumber": 640,
+      "className": "org.apache.coyote.AbstractProtocol$AbstractConnectionHandler",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "run",
+      "fileName": "JIoEndpoint.java",
+      "lineNumber": 316,
+      "className": "org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "runWorker",
+      "fileName": "ThreadPoolExecutor.java",
+      "lineNumber": 1142,
+      "className": "java.util.concurrent.ThreadPoolExecutor",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "run",
+      "fileName": "ThreadPoolExecutor.java",
+      "lineNumber": 617,
+      "className": "java.util.concurrent.ThreadPoolExecutor$Worker",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "run",
+      "fileName": "TaskThread.java",
+      "lineNumber": 61,
+      "className": "org.apache.tomcat.util.threads.TaskThread$WrappingRunnable",
+      "nativeMethod": false
+    },
+    {
+      "methodName": "run",
+      "fileName": "Thread.java",
+      "lineNumber": 748,
+      "className": "java.lang.Thread",
+      "nativeMethod": false
+    }
+  ],
+  "code": "DYNAMIC_ERROR",
+  "message": "pgui.error.code.DYNAMIC_ERROR - Could not read document: Illegal unquoted character ((CTRL-CHAR, code 13)): has to be escaped using backslash to be included in string value\n at [Source: java.io.PushbackInputStream@4b357005; line: 1, column: 15]\n at [Source: java.io.PushbackInputStream@4b357005; line: 1, column: 13] (through reference chain: com.nvs.ui.model.DataLoadInfo[\"loadTime\"]); nested exception is com.fasterxml.jackson.databind.JsonMappingException: Illegal unquoted character ((CTRL-CHAR, code 13)): has to be escaped using backslash to be included in string value\n at [Source: java.io.PushbackInputStream@4b357005; line: 1, column: 15]\n at [Source: java.io.PushbackInputStream@4b357005; line: 1, column: 13] (through reference chain: com.nvs.ui.model.DataLoadInfo[\"loadTime\"])",
+  "localizedMessage": "pgui.error.code.DYNAMIC_ERROR - Could not read document: Illegal unquoted character ((CTRL-CHAR, code 13)): has to be escaped using backslash to be included in string value\n at [Source: java.io.PushbackInputStream@4b357005; line: 1, column: 15]\n at [Source: java.io.PushbackInputStream@4b357005; line: 1, column: 13] (through reference chain: com.nvs.ui.model.DataLoadInfo[\"loadTime\"]); nested exception is com.fasterxml.jackson.databind.JsonMappingException: Illegal unquoted character ((CTRL-CHAR, code 13)): has to be escaped using backslash to be included in string value\n at [Source: java.io.PushbackInputStream@4b357005; line: 1, column: 15]\n at [Source: java.io.PushbackInputStream@4b357005; line: 1, column: 13] (through reference chain: com.nvs.ui.model.DataLoadInfo[\"loadTime\"])",
+  "suppressed": []
+}
