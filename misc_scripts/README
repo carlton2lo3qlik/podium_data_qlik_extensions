@@ -1,0 +1,31 @@
+CONTENTS OF THIS FILE
+=====================
+
+ * Introduction
+ * Requirements
+ * Installation
+ * Directory Structure
+
+INTRODUCTION
+============
+
+These three trigger / function combinations will sync metadata between INTERNAL and EXTERNAL podium objects. Some customers do not care to have an external vs internal definition of the data. This means if you change/modify Business Name, Business Description, Technical Description, or Short Name that change will be reflected in bobjects that live in both Source and Discover. Without these triggers if you update the above in Source, it will not appear in discover and the other way around.  
+
+REQUIREMENTS
+============
+
+Script on the same node as podium and postgres
+User with access to postgres
+Podium 3.1.2 (probably works for later vrsions, but this it the only one tested)
+
+INSTALLATION
+============
+
+Execute each file in the podium metadata database.
+
+psql podium_md -U psotgres -f <filenames>
+
+DIRECTORY STRUCTURE
+==================
+
+/bin/meta_sync

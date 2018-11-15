@@ -1,0 +1,53 @@
+Podium Access Mask
+====================
+We allow you to assign a user to a group with a role.  This role determines what you can do in Podium.  They are set by an access mask that is determined by adding up the access masks below.  We have four out of the box roles - analyst, master analyst, master analyst obfuscator and admin. To create new Role, we can do it within metadata database.  
+
+Permission						          Mask			             Description
+VIEW_DISCOVERY					        	1	 			               ** VIEW THE DISCOVERY OBJECTS E.G. SOURCE ENTITY FIELD ETC. *
+EDIT_DISCOVERY					        	2	 			               ** EDIT THE DISCOVERY OBJECTS E.G. SOURCE ENTITY FIELD ETC. *
+VIEW_SECURITY					          	4	 			               ** VIEW THE SECURITY OBJECTS E.G. USER GROUP ETC. *
+ADD_USER						            8	 			               ** ADD A NEW USER *
+EDIT_USER						            16				             ** EDIT AN EXISTING USER *
+ADD_GROUP						            32	 			             ** ADD A NEW GROUP *
+EDIT_GROUP						          	64	 			             ** EDIT AN EXISTING GROUP *
+VIEW_DATASOURCE					        	128	 			             ** VIEW DATA SOURCE OBJECTS E.G. SOURCE ENTITY FIELD ETC. *
+EDIT_DATASOURCE					        	256	 			             ** EDIT DATA SOURCE OBJECTS E.G. SOURCE ENTITY FIELD ETC. *
+ADD_DATASOURCE					        	512				             ** ADD A NEW DATA SOURCE *
+VIEW_PREPARE					          	1024			             ** VIEW THE PREPARE SECTION *
+VIEW_ADMINISTRATION				      		2048			             ** VIEW THE ADMINISTRATION AREA*
+VIEW_PUBLISH					          	4096			             ** VIEW PUBLISH JOB STATUS *
+CONFIGURE_PUBLISH				        	8192			             ** CONFIGURE PUBLISH JOBS *
+RUN_PUBLISH						          	16384			             ** RUN PUBLISH JOBS *
+ADD_PUBLISH_TARGET				      		32768			             ** ADD and EDIT TARGET *
+VIEW_REPORTS					          	65536			             ** VIEW REPORTS SECTION *
+ACCESS_OPERATIONAL_REPORTS      			131072	 		           ** ACCESS OPERATIONAL REPORTS *
+ACCESS_GOVERNANCE_REPORTS		    		262144	 		           ** ACCESS GOVERNANACE REPORTS *
+ACCESS_SECURITY_REPORTS			    		524288	 		           ** ACCESS SECURITY REPORTS *
+ACCESS_CUSROM_REPORTS			      		1048576			           ** ACCESS CUSTOM REPORTS *
+MODIFY_OBFUSCATION				      		2097152	 		           ** MODIFY OBFUSCATION *
+ACCESS_POLICY_SYNC				      		4194304	 		           ** ACCESS POLICY SYNC *
+ADD_SOURCE_CONNECTION			      		8388608	 		           ** ADD and EDIT SOURCE CONNECTION *
+EDIT_LEVEL_CONTROL				      		16777216		           ** EDIT DATA CONDUCTOR LEVEL FOR SOURCES AND ENTITIES *
+ACCESS_WORKFLOW_SCHEDULER		    		33554432		           ** View work-flows **
+EXECUTE_WORKFLOWS				        	67108864		           ** Execute work-flows **
+DESIGN_EDIT_WORKFLOW_SCHEDULES				134217728		           ** Design Edit and Delete work-flows **
+APPEND_DATA_PARTITION			      		268435456		           ** Append data to existing partition **
+OVERWRITE_DATA_PARTITION		    		536870912		           ** Overwrite data to existing partition **
+UNLIMITED_ACCESS				        	9223372036854775807L	 ** UNLIMITED ACCESS TO EVERYTHING *
+
+How-to:: Create new Role and apply custom access mask
+======================================================
+1. connect to your podium metadata database. run this select and you will see all the out-of-the-box roles
+	select * from podium_core.pd_role 
+
+2. now add a new role by insert into podium_core.pd_role. Notice, we are starting with access_mack of out-of-the-box Analyst (200705)
+	insert into podium_core.pd_role 
+	(sname, access_mask, created_ttz, modified_ttz, version, modifiedby, createdby) 
+	values 
+	('PLS_NEW_ROLENAME',200705, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 0, 'User1', 'User1');
+
+3. Now, we will apply Source permissions (VIEW_DATASOURCE, EDIT_DATASOURCE & ADD_DATASOURCE)
+	update podium_core.pd_role set access_mask = access_mask+128+256+512 where sname = 'PLS_NEW_ROLENAME';
+
+4. Last step, log into Podium UI as admin, click "Security" on left-nav, Users, Add User. In the 2 step you should see the NEW ROLE in dropdown. Complete the setup and try to login as new user to make sure they have "Source" button available.
+

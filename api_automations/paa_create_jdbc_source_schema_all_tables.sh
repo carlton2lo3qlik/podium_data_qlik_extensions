@@ -18,12 +18,13 @@ usage_msg() {
 	echo -e " [i.e.] #bash ./pd33_create_jdbc_source_schema_all_tables.sh ./config/pd33_create_jdbc_source_schema_all_tables.config > ./logs/pd33_create_jdbc_source_schema_all_tables.out 2>&1 &\n"	
 	echo -e "  configuration file should contain the following variables"
 	echo -e "  hostname=\"http://ludwig.podiumdata.com:8180/podium\""
-	echo -e "  source_connection_name=\"PODIUM_POSTGRES_CONNECTION\""pd33_create_get_ONLY_WANTED_SCHEMA_TABLES_OUT_jdbc_source_jq.json
+	echo -e "  source_connection_name=\"PODIUM_POSTGRES_CONNECTION\""
 	echo -e "  schema_name=\"podium_core\""
 	echo -e "  source_name=\"RBI\""
 	echo -e "  base_dir=\"\/podiumbuild\""
 	echo -e "  group_name=\"BA_users\""
-	echo -e "  hierarchy_name=\"DEFAULT\""							
+	echo -e "  hierarchy_name=\"DEFAULT\""				
+	echo -e "  internal_file_format=\"PARQUET\""			
 	echo -e "  exclude_list=\"table1,view3,table3\""	
 }
 ### if less than one arguments supplied, display usage 
@@ -50,7 +51,8 @@ echo "==== source_name=${source_name}                                           
 echo "==== base_dir=${base_dir}                                                                " >&2
 echo "==== group_name=${group_name}                                                            " >&2
 echo "==== hierarchy_name=${hierarchy_name}                                                    " >&2
-echo "==== exclude_list=${exclude_list}                                                    " >&2
+echo "==== internal_file_format=${internal_file_format}                                   	   " >&2
+echo "==== exclude_list=${exclude_list}                                                    	   " >&2
 
 echo "==========================================================================================="
 echo "== 1. New Source (click dropdown and select JDBC)                                        =="
@@ -159,8 +161,15 @@ eval $tmp_cmd
 echo "=== add group info into final json package prior to source save                          =="
 jq --argjson groupInfo "$(<./logs/pd33_create_groups.json)" '.[].groups += [$groupInfo]' ./logs/pd33_create_get_ONLY_WANTED_SCHEMA_TABLES_OUT_jdbc_source_jq_2.json > ./logs/pd33_create_get_ONLY_WANTED_SCHEMA_TABLES_OUT_jdbc_source_jq_NEW.json
 
+
+echo "=== update entity internal file format                                                   =="
+tmp_cmd="jq '. | (.[].discoveredEntities[].internalFileFormat=\"${internal_file_format}\")' ./logs/pd33_create_get_ONLY_WANTED_SCHEMA_TABLES_OUT_jdbc_source_jq_NEW.json | jq . > ./logs/pd33_create_get_ONLY_WANTED_SCHEMA_TABLES_OUT_jdbc_source_jq_NEW_2.json"
+echo $tmp_cmd
+eval $tmp_cmd
+
+
 echo "=== Save the source podium object with all tables from the JDBC schema                   =="
-tmp_cmd="curl -s -X PUT '$hostname/discovery/saveSources?hierId=$cmd_hier_output&sourceConnectionId=$cmd_srconnn_output' -b ./cookie.txt -d @./logs/pd33_create_get_ONLY_WANTED_SCHEMA_TABLES_OUT_jdbc_source_jq_NEW.json --header \"Content-Type: application/json\" | jq . > ./logs/pd33_create_create_source.json"
+tmp_cmd="curl -s -X PUT '$hostname/discovery/saveSources?hierId=$cmd_hier_output&sourceConnectionId=$cmd_srconnn_output' -b ./cookie.txt -d @./logs/pd33_create_get_ONLY_WANTED_SCHEMA_TABLES_OUT_jdbc_source_jq_NEW_2.json --header \"Content-Type: application/json\" | jq . > ./logs/pd33_create_create_source.json"
 echo $tmp_cmd
 eval $tmp_cmd
 

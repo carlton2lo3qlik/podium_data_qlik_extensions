@@ -1,0 +1,7 @@
+{
+ "_type" : "term",
+ "short_description" : " consumer_complaints.Date_received - Date we received complaint ",
+ "status" : "ACCEPTED",
+ "parent_category" : "6662c0f2.ee6a64fe.fql6218hp.r6h8i7i.dfp9i3.7nprkaf1448qtlt4lbha1",
+ "name" : "DateReceived"
+}

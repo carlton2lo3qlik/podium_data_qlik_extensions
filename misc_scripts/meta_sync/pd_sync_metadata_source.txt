@@ -1,0 +1,116 @@
+CREATE OR REPLACE FUNCTION podium_core.meta_sync_source()
+  RETURNS trigger AS
+$BODY$
+    BEGIN
+
+-- IS DISTINCT FROM is used because the value could be null (unknown)
+IF OLD.business_name IS DISTINCT FROM NEW.business_name THEN
+
+        IF NEW.source_type <> 'PODIUM_INTERNAL' THEN 
+
+        --You have updated the external nid (parent) from UI. 
+        --Now, go update internal (child) with the parent value
+
+        UPDATE podium_core.pd_source
+        SET business_name = b.BNAME_NEW
+        FROM ( select distinct a.nid, BNAME_NEW
+                FROM podium_core.pd_source a 
+                INNER JOIN podium_core.pd_entity b on (a.nid = b.source_nid)
+                INNER JOIN podium_core.pd_field  c  on (b.nid = c.entity_nid) 
+                -- 2. Then with child rows get child nid for source and update with new value
+                INNER JOIN (SELECT child_field_nid, a.business_name as BNAME_NEW
+                        FROM podium_core.pd_source a 
+                        INNER JOIN podium_core.pd_entity b on (a.nid = b.source_nid)
+                        INNER JOIN podium_core.pd_field  c  on (b.nid = c.entity_nid) 
+                        INNER JOIN podium_core.pd_field_pc_rel d on (c.nid = d.parent_field_nid)
+                        -- 1. If you have external nid (parent) join down to find child relationsip
+                        WHERE a.nid=NEW.nid) d on (c.nid = d.child_field_nid)) AS b
+                        
+        WHERE pd_source.nid=b.nid;
+
+        ELSEIF NEW.source_type = 'PODIUM_INTERNAL'  THEN
+
+        --You have updated the internal (child).
+        --Now, go update external (parent) with the child value
+
+        UPDATE podium_core.pd_source
+        SET business_name = b.BNAME_NEW
+        FROM (select distinct a.nid, BNAME_NEW
+                FROM podium_core.pd_source a 
+                INNER JOIN podium_core.pd_entity b on (a.nid = b.source_nid)
+                INNER JOIN podium_core.pd_field  c  on (b.nid = c.entity_nid) 
+                INNER JOIN (SELECT parent_field_nid, a.business_name as BNAME_NEW
+                        FROM podium_core.pd_source a 
+                        INNER JOIN podium_core.pd_entity b on (a.nid = b.source_nid)
+                        INNER JOIN podium_core.pd_field  c  on (b.nid = c.entity_nid) 
+                        INNER JOIN podium_core.pd_field_pc_rel d on (c.nid = d.child_field_nid)
+                WHERE a.nid=NEW.nid) d on (c.nid = d.parent_field_nid)) AS b
+        WHERE pd_source.nid=b.nid;
+
+        END IF;
+END IF;
+
+IF OLD.business_desc IS DISTINCT FROM NEW.business_desc THEN
+
+        IF NEW.source_type <> 'PODIUM_INTERNAL' THEN 
+
+        --You have updated the external nid (parent). 
+        --Now, go update internal (child) with the parent value
+
+        UPDATE podium_core.pd_source
+        SET business_desc = b.BDESC_NEW
+        FROM ( select distinct a.nid, BDESC_NEW
+                FROM podium_core.pd_source a 
+                INNER JOIN podium_core.pd_entity b on (a.nid = b.source_nid)
+                INNER JOIN podium_core.pd_field  c  on (b.nid = c.entity_nid) 
+                INNER JOIN (SELECT child_field_nid, a.business_desc as BDESC_NEW
+                        FROM podium_core.pd_source a 
+                        INNER JOIN podium_core.pd_entity b on (a.nid = b.source_nid)
+                        INNER JOIN podium_core.pd_field  c  on (b.nid = c.entity_nid) 
+                        INNER JOIN podium_core.pd_field_pc_rel d on (c.nid = d.parent_field_nid)
+                        WHERE a.nid=NEW.nid) d on (c.nid = d.child_field_nid)) AS b
+        WHERE pd_source.nid=b.nid;
+
+        ELSEIF NEW.source_type = 'PODIUM_INTERNAL' THEN
+
+        --You have updated the internal (child).
+        --Now, go update external (parent) with the child value
+
+        UPDATE podium_core.pd_source
+        SET business_desc = b.BDESC_NEW
+        FROM (select distinct a.nid, BDESC_NEW
+                FROM podium_core.pd_source a 
+                INNER JOIN podium_core.pd_entity b on (a.nid = b.source_nid)
+                INNER JOIN podium_core.pd_field  c  on (b.nid = c.entity_nid) 
+                INNER JOIN (SELECT parent_field_nid, a.business_desc as BDESC_NEW
+                        FROM podium_core.pd_source a 
+                        INNER JOIN podium_core.pd_entity b on (a.nid = b.source_nid)
+                        INNER JOIN podium_core.pd_field  c  on (b.nid = c.entity_nid) 
+                        INNER JOIN podium_core.pd_field_pc_rel d on (c.nid = d.child_field_nid)
+                WHERE a.nid=NEW.nid) d on (c.nid = d.parent_field_nid)) AS b
+        WHERE pd_source.nid=b.nid;
+
+
+        END IF;
+
+END IF;
+
+RETURN NEW;       
+END;
+$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+
+
+
+ALTER FUNCTION podium_core.meta_sync_source()
+  OWNER TO postgres;
+
+
+CREATE TRIGGER meta_sync_source
+  AFTER UPDATE of business_name, business_desc
+  ON podium_core.pd_source
+  FOR EACH ROW
+  EXECUTE PROCEDURE podium_core.meta_sync_source();
+
+
